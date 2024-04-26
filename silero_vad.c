@@ -111,7 +111,7 @@ int run_inference(OrtSession* session, vad_engine* m_pEngine) {
 	ORT_ABORT_ON_ERROR(g_ort->GetTensorMutableData(ort_outputs[1],(void**)&hn));
 	memcpy(m_pEngine->_h, hn, STATE_SIZE * sizeof(float));
 	float *cn = NULL;
-	ORT_ABORT_ON_ERROR(g_ort->GetTensorMutableData(ort_outputs[1],(void**)&cn));
+	ORT_ABORT_ON_ERROR(g_ort->GetTensorMutableData(ort_outputs[2],(void**)&cn));
 	memcpy(m_pEngine->_c, cn, STATE_SIZE * sizeof(float));
 
   if(output[0]>m_pEngine->threshold){
